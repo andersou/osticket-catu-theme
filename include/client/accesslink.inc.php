@@ -17,39 +17,44 @@ else
     else
         echo ' ' . __('This will sign you in to view your ticket.');
     ?></p>
-<form class="card" action="login.php" method="post" id="clientLogin">
-    <?php csrf_token(); ?>
-    <div>
-        <div class="card-body">
-            <div><strong><?php echo Format::htmlchars($errors['login']); ?></strong></div>
-            <div class="form-group">
-                <label for="email"><?php echo __('Email Address'); ?></label>
-                <input id="email" placeholder="<?php echo __('e.g. john.doe@osticket.com'); ?>" type="text" name="lemail" size="30" value="<?php echo $email; ?>" class="nowarn form-control">
-            </div>
-            <div class="form-group">
-                <label for="ticketno"><?php echo __('Ticket Number'); ?></label>
-                <input id="ticketno" type="text" name="lticket" placeholder="<?php echo __('e.g. 051243'); ?>" size="30" value="<?php echo $ticketid; ?>" class="nowarn form-control">
-            </div>
-            <p>
-                <input class="btn btn-outline-secondary btn-lg" type="submit" value="<?php echo $button; ?>">
-            </p>
-            <div class="instructions">
-                <?php if ($cfg && $cfg->getClientRegistrationMode() !== 'disabled') { ?>
-                    <?php echo __('Have an account with us?'); ?>
-                    <a href="login.php"><?php echo __('Sign In'); ?></a> <?php
-                                                                            if ($cfg->isClientRegistrationEnabled()) { ?>
-                <?php echo sprintf(
-                                                                                    __('or %s register for an account %s to access all your tickets.'),
-                                                                                    '<a href="account.php?do=create">',
-                                                                                    '</a>'
-                                                                                );
-                                                                            }
-                                                                        } ?>
-            </div>
-        </div>
+<div class="row">
+    <div class="col col-md-6">
+        <form class="card" action="login.php" method="post" id="clientLogin">
+            <?php csrf_token(); ?>
+            <div>
+                <div class="card-body">
+                    <div><strong><?php echo Format::htmlchars($errors['login']); ?></strong></div>
+                    <div class="form-group">
+                        <label for="email"><?php echo __('Email Address'); ?></label>
+                        <input id="email" placeholder="<?php echo __('e.g. john.doe@osticket.com'); ?>" type="text" name="lemail" size="30" value="<?php echo $email; ?>" class="nowarn form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketno"><?php echo __('Ticket Number'); ?></label>
+                        <input id="ticketno" type="text" name="lticket" placeholder="<?php echo __('e.g. 051243'); ?>" size="30" value="<?php echo $ticketid; ?>" class="nowarn form-control">
+                    </div>
+                    <p>
+                        <input class="btn btn-outline-secondary btn-lg" type="submit" value="<?php echo $button; ?>">
+                    </p>
+                    <div class="instructions">
+                        <?php if ($cfg && $cfg->getClientRegistrationMode() !== 'disabled') { ?>
+                            <?php echo __('Have an account with us?'); ?>
+                            <a href="login.php"><?php echo __('Sign In'); ?></a> <?php
+                                                                                    if ($cfg->isClientRegistrationEnabled()) { ?>
+                        <?php echo sprintf(
+                                                                                            __('or %s register for an account %s to access all your tickets.'),
+                                                                                            '<a href="account.php?do=create">',
+                                                                                            '</a>'
+                                                                                        );
+                                                                                    }
+                                                                                } ?>
+                    </div>
+                </div>
 
+            </div>
+        </form>
     </div>
-</form>
+</div>
+
 <br>
 <p>
     <?php

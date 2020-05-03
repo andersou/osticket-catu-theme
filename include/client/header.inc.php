@@ -39,7 +39,6 @@ if (($lang = Internationalization::getCurrentLanguage())) {
     <meta name="keywords" content="osTicket, Customer support system, support ticket system">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/osticket.css?cba6035" media="screen" />
-    <!-- <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/theme.css?cba6035" media="screen" /> -->
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/print.css?cba6035" media="print" />
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>scp/css/typeahead.css?cba6035" media="screen" />
     <link type="text/css" href="<?php echo ROOT_PATH; ?>css/ui-lightness/jquery-ui-1.10.3.custom.min.css?cba6035" rel="stylesheet" media="screen" />
@@ -65,6 +64,8 @@ if (($lang = Internationalization::getCurrentLanguage())) {
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/select2.min.js?cba6035"></script>
     <!-- Catu.IO -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/catu-theme/theme.css" media="screen" />
+
     <?php
     if ($ost && ($headers = $ost->getExtraHeaders())) {
         echo "\n\t" . implode("\n\t", $headers) . "\n";
@@ -88,202 +89,6 @@ if (($lang = Internationalization::getCurrentLanguage())) {
     <?php
     }
     ?>
-    <style>
-        bg-catu,
-        thead {
-
-            background-color: #633991;
-        }
-
-
-        h1,
-        text-catu {
-            color: #633991;
-        }
-
-        a {
-            color: #FB76B6
-        }
-
-        a:hover {
-            color: #FB76B6
-        }
-
-        .navbar-nav a {
-
-
-
-            border-bottom: 1.2px solid rgba(255, 255, 255, 0.9);
-
-
-            color: rgba(255, 255, 255, 0.9)
-        }
-
-        .navbar-nav a:hover {
-            text-decoration: none;
-            color: #FB76B6
-        }
-
-        .navbar-nav a:hover {
-
-            border-bottom-color: #FB76B6
-        }
-
-        .btn-outline-secondary:not(:disabled):not(.disabled).active,
-        .btn-outline-secondary:not(:disabled):not(.disabled):active,
-        .show>.btn-outline-secondary.dropdown-toggle {
-            color: #fff;
-            background-color: #633991;
-            border-color: #633991;
-        }
-
-        .btn-outline-secondary {
-            color: #633991;
-            border-color: #633991;
-        }
-
-        .btn-outline-secondary:hover {
-            color: #fff;
-            background-color: #633991;
-            border-color: #633991;
-        }
-
-        .card-title {
-            color: #633991;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        body div:first-child {
-            flex-grow: 1
-        }
-
-        #footer {
-
-            bottom: 0;
-            width: 100%;
-            padding: 0 1rem;
-            z-index: 1;
-        }
-
-        header {
-            background-color: rgb(74, 13, 143);
-            background: -moz-linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-            background: -webkit-linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-            background: linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-            -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
-            -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
-            color: rgba(255, 255, 255, 0.6)
-        }
-
-        .navbar-brand,
-        .navbar-brand img {
-            max-height: 80px;
-            max-width: 50%
-        }
-
-        .main-content h5 {
-            font-weight: 400
-        }
-
-        .error {
-            color: red
-        }
-
-        #profile input,
-        #account input {
-            width: 20rem;
-            max-width: 100%
-        }
-
-        .thread-entry .header {
-            color: white;
-            background-color: #FB76B6
-        }
-
-        /**?Order 0 é do consumer e order 1 do atendente */
-
-
-        .order-0~div .thread-body {
-            border-bottom: 1px solid #FB76B6;
-            border-right: 1px solid #FB76B6;
-            border-bottom-right-radius: 1rem;
-
-        }
-
-        .order-1~div .thread-body {
-            border-bottom: 1px solid #633991;
-            border-left: 1px solid #633991;
-            border-bottom-left-radius: 1rem;
-
-        }
-
-        .order-0~div .header {
-            border-top-right-radius: 1rem;
-            padding-left: 1rem
-        }
-
-        .order-1~div .header {
-            border-top-left-radius: 1rem;
-            text-align: right;
-            padding-right: 1rem;
-            background-color: #633991
-        }
-
-        .thread-event .avatar {
-            height: 1.5rem
-        }
-
-        .thread-event {
-            margin: 1rem 2rem
-        }
-
-        .thread-body,
-        .thread-entry {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .thread-body p {
-            word-break: break-word
-        }
-
-        .order-0.avatar {
-            border-bottom: 1px solid #FB76B6
-        }
-
-        .order-1.avatar {
-            border-bottom: 1px solid #633991
-        }
-
-        .home .card {
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .home-img {
-            width: 15rem;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #main-section {
-            position: relative
-        }
-
-        /*medium devices*/
-        @media (min-width: 992px) {
-            .home-img {
-                width: 20rem;
-            }
-        }
-    </style>
 </head>
 
 <body class="bg-light text-black-50">
