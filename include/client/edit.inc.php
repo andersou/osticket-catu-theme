@@ -1,6 +1,6 @@
 <?php
 
-if(!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAccess($thisclient)) die('Access Denied!');
+if (!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAccess($thisclient)) die('Access Denied!');
 
 ?>
 
@@ -10,21 +10,21 @@ if(!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAc
 
 <form action="tickets.php" method="post">
     <?php echo csrf_token(); ?>
-    <input type="hidden" name="a" value="edit"/>
-    <input type="hidden" name="id" value="<?php echo Format::htmlchars($_REQUEST['id']); ?>"/>
-<table width="800">
-    <tbody id="dynamic-form">
-    <?php if ($forms)
-        foreach ($forms as $form) {
-            $form->render(['staff' => false]);
-    } ?>
-    </tbody>
-</table>
-<hr>
-<p style="text-align: center;">
-    <input type="submit" value="Update"/>
-    <input type="reset" value="Reset"/>
-    <input type="button" value="Cancel" onclick="javascript:
-        window.location.href='index.php';"/>
-</p>
+    <input type="hidden" name="a" value="edit" />
+    <input type="hidden" name="id" value="<?php echo Format::htmlchars($_REQUEST['id']); ?>" />
+
+    <div id="dynamic-form">
+        <?php if ($forms)
+            foreach ($forms as $form) {
+                $form->render(['staff' => false]);
+            } ?>
+    </div>
+
+    <hr>
+    <p style="text-align: center;">
+        <input type="submit" class="btn btn-outline-secondary m-1" value="<?= __('Update') ?>" />
+        <input type="reset" class="btn btn-outline-secondary m-1" value="<?= __('Reset') ?>" />
+        <input type="button" class="btn btn-outline-secondary m-1" value="<?= __('Cancel') ?>" onclick="javascript:
+        window.location.href='index.php';" />
+    </p>
 </form>
